@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.main_cls{
+  background-color: rgb(206, 209, 213);
+font-size: 15px;font-weight: bold !important;
+}
+.footer,.head{justify-content: center;
+  align-items: center;
+display: flex;height: 10vh;background-color: rgb(171, 171, 168);text-align: center;}
+.contan{height: 80vh;}
+.footer h1,.head h1{margin: 0;}
