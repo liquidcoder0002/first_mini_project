@@ -27,7 +27,7 @@ const style = {
     p: 4,
 };
 
-export default function TransitionsModal() {
+export default function TransitionsModal(props) {
     const [open, setOpen] = useState(false);
     const [value, setDate] = useState(null);
 
@@ -36,17 +36,23 @@ export default function TransitionsModal() {
 
     const [fName, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [gender, setlGen] = useState('');
+    const [gender, setlGen] = useState('female');
 
 
     const submitValue = () => {
         const details = {
-            'Name' : fName,
-            'Phone' : phone,
-            "date": value,
+            'name' : fName,
+            'mobile' : phone,
+            "dob": value,
             "gender" : gender,
         }
+        // handleClose();
+        // document.querySelector("#name").value = " ";
+        // document.querySelector("#mobile").value = " ";
+        // document.querySelector("#date").value = " ";
+        props.customerData(details)
         console.log(details);
+        // props.model_op(false)
     }
     
 
@@ -78,6 +84,7 @@ export default function TransitionsModal() {
                                 <DatePicker
                                     label="Date of Birth"
                                     value={value}
+                                    
                                     onChange={(newValue) => {
                                         setDate(newValue);
                                     }}
