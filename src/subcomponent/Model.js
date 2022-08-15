@@ -46,7 +46,7 @@ export default function TransitionsModal(props) {
             "dob": value,
             "gender" : gender,
         }
-        // handleClose();
+        handleClose();
         // document.querySelector("#name").value = " ";
         // document.querySelector("#mobile").value = " ";
         // document.querySelector("#date").value = " ";
@@ -55,6 +55,7 @@ export default function TransitionsModal(props) {
         // props.model_op(false)
     }
     
+
 
     return (
         <div>

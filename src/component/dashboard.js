@@ -47,11 +47,22 @@ export default function Dashboard() {
   console.log("customer", customer);
   const handledelete = (e) => {
 
-    customer.splice(e.target.attributes[3].value,1)
+    // customer.splice(e.target.attributes[3].value,1)
     // customer[e.target.attributes[3].value]
-    console.log("e============",customer[e.target.attributes[3].value].name)
+    console.log("e============",customer[e.target.attributes[3].value],e.target.attributes[3].value,customer)
+    let new_var = customer.filter((val,key)=> key != e.target.attributes[3].value)
+    setCustomer(new_var);
+  }
+
+  const handle = (e) => {
+
+    // customer.splice(e.target.attributes[3].value,1)
+    // customer[e.target.attributes[3].value]
+    console.log("e============",customer)
 
   }
+
+
   console.log(customer)
   return (<>
     <div style={{ padding: "20px", textAlign: "right" }}>
@@ -64,7 +75,7 @@ export default function Dashboard() {
           <TableHead>
             <TableRow >
               <TableCell className='main_cls' >Name</TableCell>
-              <TableCell className='main_cls' align="right">Mobile</TableCell>
+              <TableCell className='main_cls' align="right" onClick={handle}>Mobile</TableCell>
               <TableCell className='main_cls' align="right">Birth-Date</TableCell>
               <TableCell className='main_cls' align="right">Gender</TableCell>
               <TableCell className='main_cls' align="right">Edit</TableCell>
@@ -84,7 +95,7 @@ export default function Dashboard() {
                 <TableCell align="right">{row.mobile}</TableCell>
                 <TableCell align="right">{ new Date(row.dob).getDate()  + "/" + (new Date(row.dob).getMonth()+ 1 ) + "/" +  new Date(row.dob).getFullYear()}</TableCell>
                 <TableCell align="right">{row.gender}</TableCell>
-                <TableCell align="right"><Button variant="outlined">Edit</Button></TableCell>
+                <TableCell align="right"><Button variant="outlined" >Edit</Button></TableCell>
                 <TableCell align="right"><Button variant="outlined" startIcon={<DeleteIcon />} onClick={handledelete} Index={index}>Delete</Button></TableCell>
               </TableRow>
             })}
